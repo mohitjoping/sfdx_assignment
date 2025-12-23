@@ -1,0 +1,30 @@
+{
+  "name": "sfdx_assignment",
+  "version": "1.0.0",
+  "description": "this is an assignment where i will sync salesforcedata with postgressdb  through rest api's.",
+  "keywords": [
+    "nodejs",
+    "salesforce",
+    "postgresdb",
+    "lwc",
+    "apex"
+  ],
+  "homepage": "https://github.com/mohitjoping/sfdx_assignment#readme",
+  "bugs": {
+    "url": "https://github.com/mohitjoping/sfdx_assignment/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohitjoping/sfdx_assignment.git"
+  },
+  "license": "ISC",
+  "author": "mohit",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

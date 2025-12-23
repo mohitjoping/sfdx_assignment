@@ -1,0 +1,8 @@
+[] - create dev account on salesforce
+[] - postgresdb setup. 
+[] - create obj and sync btn 
+[] - create rest api - JSON
+[] - connect rest api with postgresdb and deploy it. 
+[] - Now figureout how sync btn functionality work and add logic to it. 
+[] - And how it hit the rest api from salesforce. 
+[] - for sync data what logic we will apply. 

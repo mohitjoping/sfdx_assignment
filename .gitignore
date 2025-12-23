@@ -1,0 +1,52 @@
+# -------------------------
+# backend files.
+# -------------------------
+node_modules/
+package-lock.json
+
+# -------------------------
+# dotenv files
+# -------------------------
+.env
+.env.local
+.env.*.local
+
+# -------------------------
+# Build stuff
+# -------------------------
+dist/
+build/
+.tmp/
+
+# -------------------------
+# Salesforce / SFDX
+# -------------------------
+.sfdx/
+.sf/
+*.log
+.deploy/
+.cache/
+
+#-------------------------
+# Salesforce local configs
+#-------------------------
+*.dup
+*.copy
+*.bak
+
+# -------------------------
+# IDE / Editor
+# -------------------------
+.vscode/
+.idea/
+*.iml
+
+# -------------------------
+# OS files
+# -------------------------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+._*
+
