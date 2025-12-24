@@ -1,21 +1,40 @@
-services: 
-
-  postgres: 
+services:
+  postgres:
     image: postgres:16
     container_name: sfdx_assignment
     restart: unless-stopped
     environment:
+      POSTGRES_USER: ${DB_USER:-hellomohit}
       POSTGRES_DB: ${DB_NAME:-sfdx-assignment}
       POSTGRES_PASSWORD: ${DB_PASSWORD:-password123}
-      POSTGRES_USER: ${DB_USER:-hellomohit}
-    ports:
-      - "5432:5432"
     volumes:
-      - postggres-data:/var/lib/postgresql/data
-      - ./init-scripts:/docker-enterypoint-initdb.d
+      - postgres-data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U hellomohit"]
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-hellomohit}"]
       interval: 10s
       timeout: 5s
       retries: 5
       start_period: 30s
+
+  api:
+    image: node:20-alpine
+    container_name: salesforce-api
+    working_dir: /app
+    volumes:
+      - ./:/app
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: postgres
+      DB_USER: ${DB_USER:-hellomohit}
+      DB_PASSWORD: ${DB_PASSWORD:-password123}
+      DB_NAME: ${DB_NAME:-sfdx-assignment}
+      DB_PORT: 5432
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: sh -c "npm install && npm start"
+
+volumes:
+  postgres-data:
