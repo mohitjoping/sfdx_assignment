@@ -6,11 +6,6 @@ const { Pool } = require("pg");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-/**
- * Supabase Postgres connection
- * Uses DATABASE_URL:
- * postgresql://postgres:password@db.xxxxx.supabase.co:5432/postgres
- */
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
@@ -18,7 +13,6 @@ const pool = new Pool({
   },
 });
 
-// Optional: verify DB connection on startup
 pool.query("SELECT 1")
   .then(() => console.log("Connected to Supabase Postgres"))
   .catch((err) => console.error("DB connection failed", err));
